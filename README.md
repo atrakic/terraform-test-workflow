@@ -10,14 +10,26 @@
 ```
 name: terraform test
 on:
-  workflow_dispatch: # allow manual trigger
+  workflow_dispatch: # allows manual trigger
   push:
-    branches: [main]
   pull_request:
     branches: [main]
+
 jobs:
+
   call-tf-reusable-workflow:
     uses: atrakic/terraform-test-workflow/.github/workflows/tf-reusable-workflow.yml@main
     with:
+
+      ## Mandatory settings
       working_directory: .
+
+      ## Optionals
+      runs_on: ubuntu-latest
+      environment: dev
+      terraform_version: "~>1.0"
+      terraform_fmt_enabled: true
+      terraform_fmt_check: false
+      terraform_test_enabled: true
+      terraform_test_args: null   ##  eg. "-var 'foo=bar' -filter=tests/mock_plan.tftest.hcl"
 ```
