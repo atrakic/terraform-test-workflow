@@ -2,17 +2,9 @@ name: ci
 on:
   workflow_dispatch: # allow manual trigger
   push:
-    paths:
-      - 'tests/**'
-      - '.github/workflows/ci.yml'
-      - '.github/workflows/tf-reusable-workflow.yml'
   pull_request:
-    paths:
-      - 'tests/**'
-      - '.github/workflows/ci.yml'
-      - '.github/workflows/tf-reusable-workflow.yml'
 jobs:
   call-tf-reusable-workflow:
-    uses: atrakic/terraform-test-workflow/.github/workflows/terraform-test-workflow.yml@main
+    uses: atrakic/terraform-test-workflow/.github/workflows/tf-reusable-workflow.yml@main
     with:
       working_directory: tests

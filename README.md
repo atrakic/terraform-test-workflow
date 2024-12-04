@@ -17,7 +17,7 @@ on:
     branches: [main]
 jobs:
   call-tf-reusable-workflow:
-    uses: atrakic/terraform-test-workflow/.github/workflows/terraform-test-workflow.yml@main
+    uses: atrakic/terraform-test-workflow/.github/workflows/tf-reusable-workflow.yml@main
     with:
       working_directory: .
 ```
