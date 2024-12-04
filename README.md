@@ -1,4 +1,4 @@
-# terraform-reusable-test-workflow
+# terraform-test-workflow
 
 [![ci](https://github.com/atrakic/terraform-test-workflow/actions/workflows/ci.yml/badge.svg)](https://github.com/atrakic/terraform-test-workflow/actions/workflows/ci.yml)
 
