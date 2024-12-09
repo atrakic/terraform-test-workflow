@@ -152,7 +152,7 @@ jobs:
         with:
           terraform_version: inputs.terraform_version
       - name: terraform init
-        run: terraform init
+        run: terraform init -backend=false
         working-directory: ${{ inputs.working_directory }}
       - name: terraform test
         run: terraform test ${{ inputs.terraform_test_args }}
