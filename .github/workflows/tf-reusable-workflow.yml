@@ -72,6 +72,11 @@ on:
         default: null
         required: false
         description: Additional arguments to pass to the terraform test command e.g. "-var 'foo=bar' -filter=tests/mock_plan.tftest.hcl"
+      terraform_security_test_enabled:
+        type: boolean
+        default: true
+        required: false
+        description: Should terraform security test jobs run
 
 jobs:
   # TFLint Job
@@ -157,6 +162,13 @@ jobs:
       - name: terraform test
         run: terraform test ${{ inputs.terraform_test_args }}
         working-directory: ${{ inputs.working_directory }}
+  terraform-security:
+    environment: ${{ inputs.environment }}
+    runs-on: ${{ inputs.runs_on }}
+    if: inputs.terraform_security_test_enabled
+    steps:
+      - uses: actions/checkout@v4
+        name: Checkout source code
       - name: Run Checkov action
         id: checkov
         uses: bridgecrewio/checkov-action@master
