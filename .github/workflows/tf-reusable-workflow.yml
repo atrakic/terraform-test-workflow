@@ -175,3 +175,4 @@ jobs:
         with:
           directory: ${{ inputs.working_directory }}
           framework: terraform
+          quiet: true
