@@ -5,6 +5,6 @@ on:
   pull_request:
 jobs:
   call-tf-reusable-workflow:
-    uses: atrakic/terraform-test-workflow/.github/workflows/tf-reusable-workflow.yml@feature/add-security-scan
+    uses: atrakic/terraform-test-workflow/.github/workflows/tf-reusable-workflow.yml@main
     with:
       working_directory: tests/tf
