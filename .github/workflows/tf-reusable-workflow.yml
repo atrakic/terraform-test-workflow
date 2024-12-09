@@ -157,3 +157,9 @@ jobs:
       - name: terraform test
         run: terraform test ${{ inputs.terraform_test_args }}
         working-directory: ${{ inputs.working_directory }}
+      - name: Run Checkov action
+        id: checkov
+        uses: bridgecrewio/checkov-action@master
+        with:
+          directory: ${{ inputs.working_directory }}
+          framework: terraform
