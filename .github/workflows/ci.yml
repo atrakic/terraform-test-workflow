@@ -7,4 +7,4 @@ jobs:
   call-tf-reusable-workflow:
     uses: atrakic/terraform-test-workflow/.github/workflows/tf-reusable-workflow.yml@main
     with:
-      working_directory: tests
+      working_directory: tests/tf
