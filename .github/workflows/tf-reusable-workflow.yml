@@ -6,7 +6,8 @@ on:
       working_directory:
         type: string
         description: Working directory for this workflow
-        required: true
+        default: .
+        required: false
       environment:
         # Note: The environment setting will NOT allow secrets from that environment to be used in the RUW. Only
         # environment variables and deploy rules are useful here. This can also be used for OIDC.

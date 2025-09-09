@@ -16,15 +16,10 @@ on:
     branches: [main]
 
 jobs:
-
-  call-tf-reusable-workflow:
+  terraform-test-workflow:
     uses: atrakic/terraform-test-workflow/.github/workflows/tf-reusable-workflow.yml@main
     with:
-
-      ## Mandatory settings
-      working_directory: .
-
-      ## Optionals
+      working_directory: ./tf
       runs_on: ubuntu-latest
       environment: dev
       terraform_version: "~>1.0"
