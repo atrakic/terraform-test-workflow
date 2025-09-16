@@ -1,3 +1,8 @@
+permissions:
+  security-events: write # Needed to upload-sarif
+  contents: read # Needed to clone repo
+  actions: read # Potentially needed for private repositories (see https://github.com/github/codeql-action/issues/2117)
+
 on:
   # REUSABLE WORKFLOW with INPUTS
   workflow_call:
@@ -177,3 +182,10 @@ jobs:
           directory: ${{ inputs.working_directory }}
           framework: terraform
           quiet: true
+      # Upload results to GitHub Advanced Security
+      - name: Upload SARIF file
+        if: success() || failure()
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: results.sarif
+          category: checkov
