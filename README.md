@@ -14,7 +14,10 @@ on:
   push:
   pull_request:
     branches: [main]
-
+permissions:
+  security-events: write # Needed to upload-sarif
+  contents: read # Needed to clone repo
+  actions: read # Potentially needed for private repositories
 jobs:
   terraform-test-workflow:
     uses: atrakic/terraform-test-workflow/.github/workflows/tf-reusable-workflow.yml@main
