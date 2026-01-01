@@ -89,7 +89,7 @@ jobs:
       - uses: actions/checkout@v5
         name: Checkout source code
       # A cache is configured to avoid downloading plugins on every run
-      - uses: actions/cache@v4
+      - uses: actions/cache@v5
         name: Cache TFLint Plugins
         with:
           path: ~/.tflint.d/plugins
@@ -141,7 +141,7 @@ jobs:
       # Create the cache directory
       - run: mkdir -p ${{ env.TF_PLUGIN_CACHE_DIR }}
       # Initialize the cache
-      - uses: actions/cache@v4
+      - uses: actions/cache@v5
         name: Cache Terraform Providers
         with:
           path: ${{ env.TF_PLUGIN_CACHE_DIR }}
