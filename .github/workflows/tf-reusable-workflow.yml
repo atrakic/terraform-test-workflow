@@ -116,7 +116,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
         name: Checkout source code
-      - uses: hashicorp/setup-terraform@v3
+      - uses: hashicorp/setup-terraform@v4
         name: Setup Terraform
         with:
           terraform_version: inputs.terraform_version
@@ -153,7 +153,7 @@ jobs:
             terraform-providers-${{ runner.os }}-
       - name: List plugin cache contents
         run: ls -R ${{ env.TF_PLUGIN_CACHE_DIR }}
-      - uses: hashicorp/setup-terraform@v3
+      - uses: hashicorp/setup-terraform@v4
         name: Setup Terraform
         with:
           terraform_version: inputs.terraform_version
